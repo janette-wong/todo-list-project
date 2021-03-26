@@ -7,11 +7,13 @@
   justify-content: center;
   flex-direction: column;
 }
+
 .header-text {
   font-size: 3.5rem;
   text-decoration: underline;
   cursor: e-resize;
   padding: 10px;
+  position: relative;
   transition: all 0.3s;
 }
 
@@ -20,3 +22,4 @@
   transform: skewX(-2.5deg) translateY(-2.5px);
   background-color: rgba(255, 99, 71, 0.3);
 }
+

@@ -36,6 +36,7 @@ code {
   position: absolute;
   top: 0%;
   left: 0%;
+  
   background-color: #2f4f4f;
   height: 100px;
   width: 100vw;
@@ -45,6 +46,7 @@ code {
   color: #cdb79e;
   text-align: center;
   padding-top: 40px;
+  position: relative;
 }
 
 .signupbutton {
@@ -88,6 +90,7 @@ code {
 .option-header {
   float: right;
   background-color: #2f4f4f;
+  
 }
 
 #contact {
@@ -717,4 +720,9 @@ label.valid:after {
     margin-right: 0px;
     margin-bottom: 10px;
   }
+  
+}
+
+.listbox {
+    margin-top: 50px ;
 }
