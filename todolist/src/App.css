@@ -1,0 +1,25 @@
+/* *{
+  background-color: #FEFCFF;
+} */
+.App {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.header-text {
+  text-align: center;
+  font-size: 3.5rem;
+  text-decoration: underline;
+  cursor: e-resize;
+  padding: 10px;
+  transition: all 0.3s;
+}
+.header-text:hover {
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.2);
+  transform: skewX(-2.5deg) translateY(-2.5px);
+  background-color: rgba(255, 99, 71, 0.3);
+}
