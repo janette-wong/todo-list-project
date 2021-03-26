@@ -45,14 +45,20 @@ code {
 }
 
 .backsignin {
-    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100vh;
+    width: 100vw;
     background-color: #FFFAF0;
 }
 
 .backsignup {
-    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100vh;
+    width: 100vw;
     background-color: #FFFAF0;
 }
 
