@@ -2,16 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-const Header = () => {
+const Headersignup = () => {
   return (
     <div className="top-header">
       <div id="logo">
         <h1> BULLET JOURNAL </h1>
-        <button className="signupbutton"><Link to="/Signup">Sign Up</Link></button>
         {" "}
       </div>{" "}
     </div>
   );
 };
 
-export default Header;
+export default Headersignup;

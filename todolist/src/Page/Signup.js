@@ -1,11 +1,12 @@
 import React from 'react'
 import dotpaper from '../picture/dotpaper.png'
 import { Link } from "react-router-dom"
-import Header from '../components/Header/Header'
+import Headersignup from '../components/Header/Headersignup'
+
 const Signup = () => {
     return (
         <div className="backsignup">
-            <Header />
+            <Headersignup/>
             <div className="sign-up">
                     <div className="up-container">
                         <div className="signup-content">
@@ -33,7 +34,7 @@ const Signup = () => {
                                         <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                                     </div>
                                     <div className="form-group form-button">
-                                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                                        <Link to="/In"><input type="submit" name="signup" id="signup" class="form-submit" value="Register" /></Link>
                                     </div>
                                 </form>
                             </div>
