@@ -1,7 +1,9 @@
 import React from "react";
 
 export const Card = ({ children }) =>{
-    return (<div className="container">{children}</div>)
+    return (<div className="cardcontainer">{children}</div>
+    )
 };
+    
 
 export const number = 1;

@@ -34,13 +34,13 @@ const Signup = () => {
                                         <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                                     </div>
                                     <div className="form-group form-button">
-                                        <Link to="/In"><input type="submit" name="signup" id="signup" class="form-submit" value="Register" /></Link>
+                                        <Link to="/Login"><input type="submit" name="signup" id="signup" class="form-submit" value="Register" /></Link>
                                     </div>
                                 </form>
                             </div>
                             <div className="signup-image">
                                 <div><img src={dotpaper} alt="sing up image" /></div>
-                                <Link to="/In"> I am already member</Link>
+                                <Link to="/Login"> I am already member</Link>
                             </div>
                         </div>
                     </div>

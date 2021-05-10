@@ -1,44 +1,54 @@
-import List from './List';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import List from "./Page/List";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useState } from "react";
-import HomePage from './HomePage';
+import HomePage from "./Page/HomePage";
 
-import In from './Page/In'
-import "./App.css";
-import "./Card.css";
-import "./InputBox.css";
-import "./TodosBox.css";
-import "./TodosItem.css";
-import "./index.css";
-import Signup from './Page/Signup';
-
+import Login from "./Page/Login";
+import "./css/App.css";
+import "./css/Card.css";
+import "./css/InputBox.css";
+import "./css/TodosBox.css";
+import "./css/TodosItem.css";
+import "./css/index.css";
+import "./css/Sidebar.css";
+import TodayPage from "./Page/TodayPage";
+import Signup from "./Page/Signup";
+import UpcomingPage from "./Page/UpcomingPage";
+import CalendarPage from "./Page/CalendarPage";
 
 const App = () => {
-
-
   return (
     <Router>
       <div className="App">
         <Switch>
+          <Route exact path="/" component={HomePage} />
 
-      <Route exact path="/" component={HomePage}/>
+          <Route path="/list">
+            <List />
+          </Route>
 
-      <Route path="/list">
-        <List/>
-      </Route>
+          <Route path="/Login">
+            <Login />
+          </Route>
 
-      <Route path="/In">
-        <In/>
-      </Route>
+          <Route path="/Signup">
+            <Signup />
+          </Route>
 
-      <Route path="/Signup">
-        <Signup/>
-      </Route>
+          <Route path="/TodayPage">
+            <TodayPage />
+          </Route>
 
-      </Switch>
-    </div>
+          <Route path="/UpcomingPage">
+            <UpcomingPage />
+          </Route>
+
+          <Route path="/CalendarPage">
+            <CalendarPage />
+          </Route>
+        </Switch>
+      </div>
     </Router>
-    
   );
 };
 

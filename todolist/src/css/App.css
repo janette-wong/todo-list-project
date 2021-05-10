@@ -1,0 +1,31 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+  background: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: url('../picture/paperboard-texture.jpg');
+}
+
+.header-text {
+  text-align: center;
+  align-items: center;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  cursor: e-resize;
+  padding: 8px;
+  width: 350px;
+  margin-left: 30%;
+  position: relative;
+  transition: all 0.2s;
+  background-color: #c7baab;
+}
+
+.header-text:hover {
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.2);
+  transform: skewX(-2.5deg) translateY(-2.5px);
+  background-color: #CDB79E;
+}
+

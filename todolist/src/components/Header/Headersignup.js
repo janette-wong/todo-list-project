@@ -7,8 +7,8 @@ const Headersignup = () => {
     <div className="top-header">
       <div id="logo">
         <h1> BULLET JOURNAL </h1>
-        {" "}
-      </div>{" "}
+        <button className="signupbutton"><Link to="/Signup">Sign Up</Link></button>
+      </div>
     </div>
   );
 };
