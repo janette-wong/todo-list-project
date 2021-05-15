@@ -1,15 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "../components/Card/Card";
 import Header from "../components/Header/Header";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { InputBox } from "../components/InputBox/InputBox";
 import { TodosBox } from "../components/Todos/TodosBox/TodosBox";
+import {useParams} from "react-router";
+import axios from "../Util/axios"
+
 
 const TodayPage = () => {
   const [todos, setTodos] = useState([]);
+  const {username} = useParams();
+  useEffect(() => {
+    axios.get("/Schedule/Today").then((res) => {
+      setTodos(res.data);
+      console.log(res.data)
+    });
+  },[]);
 
-  const onAddHandler = (text) => {
-    setTodos([...todos, { id: Math.random(), text: text }]);
+  const onAddHandler = (data) => {
+    axios.post("/Schedule", {name: data.name, date: data.date, username: username}).then(res => {
+      setTodos([...todos, res.data])
+    })
   };
 
   const onDeleteHandler = (id) => {
@@ -19,7 +31,7 @@ const TodayPage = () => {
 
   return (
     <div>
-      <Sidebar />
+      <Sidebar username={username}/>
       <Header />
       <div className="listbox-for-today">
         <h1 className="header-text">TODAY’S TO-DO LIST</h1>

@@ -66,10 +66,10 @@
 .calendar-todo-item{
   top: 3px;
   right: 3px;
-  width: 25px;
   height: 25px;
   background: #fff;
   pointer-events: none;
+  display: flex;
 }
 
 .calendar-todo-item button {

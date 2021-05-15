@@ -1,20 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "../components/Card/Card";
 import Headersignup from "../components/Header/Headersignup";
 import { InputBox } from "../components/InputBox/InputBox";
 import { TodosBox } from "../components/Todos/TodosBox/TodosBox";
 import Sidebar from "../components/Sidebar/Sidebar";
+import axios from "../Util/axios"
+import {useParams} from "react-router";
+
+
 
 const List = () => {
   
-  const [todos, setTodos] = useState([
-    { id: 1, text: "Go shopping" },
-    // { id: 2, text: "Do homework" },
-    // { id: 3, text: "Clean my room" },
-  ]);
+  const [todos, setTodos] = useState([]);
+   const {username} = useParams();
 
-  const onAddHandler = (text) => {
-    setTodos([...todos, { id: Math.random(), text: text }]);
+  useEffect( ()=>{
+    axios.get("/Schedule").then(data => setTodos(data.data)).catch(err => console.log(err))
+  },[])
+
+  const onAddHandler = (data) => {
+    axios.post("/Schedule", {name: data.name, date: data.date, username: username}).then(res => {
+      setTodos([...todos, res.data])
+    })
   };
 
   const onDeleteHandler = (id) => {
@@ -24,7 +31,7 @@ const List = () => {
 
   return (
     <div className ="bg">
-      <Sidebar/>
+      <Sidebar username={username}/>
       <Headersignup />
         <div className="listbox">
           <h1 className="header-text">TO-DO LIST</h1>

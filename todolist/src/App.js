@@ -1,8 +1,6 @@
 import List from "./Page/List";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useState } from "react";
-import HomePage from "./Page/HomePage";
-
 import Login from "./Page/Login";
 import "./css/App.css";
 import "./css/Card.css";
@@ -21,9 +19,11 @@ const App = () => {
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" render={() => {
+            return <Login/>
+          }} />
 
-          <Route path="/list">
+          <Route path="/List/:username">
             <List />
           </Route>
 
@@ -35,15 +35,15 @@ const App = () => {
             <Signup />
           </Route>
 
-          <Route path="/TodayPage">
+          <Route path="/TodayPage/:username">
             <TodayPage />
           </Route>
 
-          <Route path="/UpcomingPage">
+          <Route path="/UpcomingPage/:username">
             <UpcomingPage />
           </Route>
 
-          <Route path="/CalendarPage">
+          <Route path="/CalendarPage/:username">
             <CalendarPage />
           </Route>
         </Switch>

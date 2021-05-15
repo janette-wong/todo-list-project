@@ -1,15 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "../components/Card/Card";
 import Header from "../components/Header/Header";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { InputBox } from "../components/InputBox/InputBox";
 import { TodosBox } from "../components/Todos/TodosBox/TodosBox";
+import axios from "../Util/axios";
+import {useParams} from "react-router";
+
+
 
 const UpcomingPage = () => {
   const [todos, setTodos] = useState([]);
 
-  const onAddHandler = (text) => {
-    setTodos([...todos, { id: Math.random(), text: text }]);
+  useEffect(() => {
+    axios.get("/Schedule/Upcoming").then((res) => {
+      setTodos(res.data);
+      console.log(res.data)
+    });
+  },[]);
+  const {username} = useParams();
+
+  const onAddHandler = (data) => {
+    axios.post("/Schedule", {name: data.name, date: data.date, username: username}).then(res => {
+      setTodos([...todos, res.data])
+    })
   };
 
   const onDeleteHandler = (id) => {
@@ -18,7 +32,7 @@ const UpcomingPage = () => {
   };
   return (
     <div>
-      <Sidebar />
+      <Sidebar username={username} />
       <Header />
       <div className="listbox-for-upcoming">
         <h1 className="header-text">UPCOMING TO-DO LIST</h1>

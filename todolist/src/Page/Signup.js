@@ -1,9 +1,28 @@
-import React from 'react'
+import React,{useState} from 'react'
 import dotpaper from '../picture/dotpaper.png'
 import { Link } from "react-router-dom"
 import Headersignup from '../components/Header/Headersignup'
+import axios from "../Util/axios";
+import qs from "qs";
 
 const Signup = () => {
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [data, setData] = useState({})
+  
+    const signupCheck = async () =>{
+        try {
+          const Signup = await axios.post("/account/signup",qs.stringify({
+            username: username,
+            password: password,
+          }))
+          if(Signup.data.isSignup){
+          window.location.href="/Login"
+          }
+        } catch (error) {
+    
+        }
+    }
     return (
         <div className="backsignup">
             <Headersignup/>
@@ -15,15 +34,12 @@ const Signup = () => {
                                 <form method="POST" class="register-form" id="register-form">
                                     <div className="form-group">
                                         <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                        <input type="text" name="name" id="name" placeholder="Your Name" />
+                                        <input type="text" name="username" id="username" onChange={(e)=>{setUsername(e.target.value)}}placeholder="Username" />
                                     </div>
-                                    <div className="form-group">
-                                        <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                        <input type="email" name="email" id="email" placeholder="Your Email" />
-                                    </div>
+                                    
                                     <div className="form-group">
                                         <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                        <input type="password" name="pass" id="pass" placeholder="Password" />
+                                        <input type="password" name="pass" id="pass" onChange={(e)=>{setPassword(e.target.value)}} placeholder="Password" />
                                     </div>
                                     <div className="form-group">
                                         <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
@@ -34,7 +50,7 @@ const Signup = () => {
                                         <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                                     </div>
                                     <div className="form-group form-button">
-                                        <Link to="/Login"><input type="submit" name="signup" id="signup" class="form-submit" value="Register" /></Link>
+                                        <Link to="/Login"><input onClick={signupCheck} type="submit" name="signup" id="signup" class="form-submit" value="Register" /></Link>
                                     </div>
                                 </form>
                             </div>
@@ -48,5 +64,6 @@ const Signup = () => {
             </div>
     )
 }
+
 
 export default Signup
